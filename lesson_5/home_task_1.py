@@ -4,12 +4,13 @@ x = (input('Введите число:'))
 y = 0
 
 for a in x:
+    y += 1
     for b in x:
         if a == b:
-            y +=1
             print(y, "рівні")
-        else:
-            print (a, b , "не рівні")
+    break
+
+
 
 
 
