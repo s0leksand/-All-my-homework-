@@ -1,14 +1,17 @@
-# task 1
+x = input('Введите число:')
 
-x = (input('Введите число:'))
-y = 0
+result = False
+for i in range(len(x)):
+    for j in range(len(x)):
+        if i != j and x[i] == x[j]:
+            result = True
+            print(x[i], x[j], "рівні")
+            break
+    if result:
+        break
 
-for a in x:
-    y += 1
-    for b in x:
-        if a == b:
-            print(y, "рівні")
-    break
+if not result:
+    print('Not equal')
 
 
 
