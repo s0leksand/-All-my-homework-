@@ -7,7 +7,7 @@ para = 0
 ne_para = 0
 
 while True:
-    n = int(input("Введіть саме позитивне число: "))
+    n = int(input("Введіть число: "))
     summ += n
     y += 1
     if n == 0:
@@ -25,7 +25,5 @@ arif = (summ / y)
 
 print("Сумма чисел", summ)
 print("Середне", arif)
-print("Максимальное число", maxim)
-print("Минимальное число", minimum)
-print("парное", para)
-print("парное", ne_para)
+print("Максимальное число -", maxim, ". Мінімальне значення -", minimum )
+print("Парне -", para, ". Не парне -", ne_para )
