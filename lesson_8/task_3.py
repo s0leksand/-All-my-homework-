@@ -1,16 +1,17 @@
 import random
 
-i = [random.randint(0, 20) for _ in range(15)]
+sum_even = 0
+sum_odd = 0
 
-g = []
-q = []
+arr = [random.randint(1, 20) for j in range(15)]
 
-for x in i:
-    if x % 2 == 0:
-        g.append(x)
+for i in range(15):
+    if arr[i] % 2 == 0:
+        sum_even += arr[i]
     else:
-        q.append(x)
-if g > q:
-    print("Ні")
+        sum_odd += arr[i]
+
+if sum_even < sum_odd:
+    print("Yes")
 else:
-    print("Так")
+    print("No")
