@@ -1,37 +1,24 @@
 import random
 
-x = int(input('Розмір таблиці:'))
-a = 0
-b = 0
-sum = []
+n = input("Введіть N: ")
+int_n = int(n)
 
-for matrix in range(x):
-        a += 1
-        for matrix_1 in range(x):
-            b += 1
-            matrix_1 = [random.randint(0,9) for _ in range(x)]
-            if (a == b):
-                sum.append(matrix_1)
-            break
+arr = [[random.randint(1, 20) for j in range(int_n)] for i in range(int_n)]
 
-diagonalSumma = 0
-print(sum)
+print("Матриця:")
+for i in range(int_n):
+    for j in range(int_n):
+        print(f'{arr[i][j]:>{len(n*2)}}', end="\t")
+    print('\n')
 
 
-i = 0
-for x in sum:
-    diagonalSumma += sum[i][i]
-    i+=1
-print('----------')
-print('По діагоналі', diagonalSumma)
+x = arr[0][0]
+for a in range(int_n-1):
+    x += arr[a + 1][a + 1]
+print("Сума по діагоналі:", x)
+print('')
 
-
-lastRowSum = 0
-
-
-for x in sum[(len(sum) - 1)]:
-    lastRowSum += x
-
-print('----------')
-print('Сума останнього рядка ', lastRowSum)
-
+y = arr[0][-1]
+for a in range(int_n-1):
+    y += arr[a + 1][-1]
+print("Сума останього стовпця:", y)
