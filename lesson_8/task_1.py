@@ -1,8 +1,11 @@
-x = int(input('Введите размер таблицы: '))
-for i in range(1, x + 1):
-    for col in range(1, x + 1):
-        if i % 2 == 0:
-            print(i, end='\t')
-        else:
-            print(col, end='\t')
-    print()
+import random
+
+n = input("Введіть число N: ")
+int_n = int(n)
+
+arr = [[random.randint(-int_n, -1) if i % 2 != 0 else i for j in range(int_n)] for i in range(int_n)]
+
+for i in range(int_n):
+    for j in range(int_n):
+        print(f'{arr[i][j]:>{len(n*2)}}', end="\t")
+    print('')
