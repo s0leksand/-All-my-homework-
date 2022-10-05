@@ -23,3 +23,39 @@ def boat_check(y, x, boat_location_check):
         boat_location_check.add(f'{[y, x + 1 - i]}')
         boat_location_check.add(f'{[y + 1, x - 1 + i]}')
     return boat_location_check
+
+
+def right_locate(board, boat_size):
+    bool_check = True
+
+    location_x = random.randint(0, 9 - boat_size + 1)
+    location_y = random.randint(0, 9)
+
+    for i in range(boat_size):
+        if f'[{location_y}, {location_x + i}]' in board.boats_location:
+            bool_check = False
+
+    if bool_check:
+        for i in range(boat_size):
+            board.board_selections[location_y][location_x + i] = '⬜'
+            board.boats_location = boat_check(location_y, location_x + i,
+                                              board.boats_location)
+        return bool_check
+
+    def left_locate(board, boat_size):
+        bool_check = True
+
+        location_x = random.randint(0, 9)
+        location_y = random.randint(0, 9 - boat_size + 1)
+
+        for i in range(boat_size):
+            if f'[{location_y + i}, {location_x}]' in board.boats_location:
+                bool_check = False
+
+        if bool_check:
+            for i in range(boat_size):
+                board.board_selections[location_y + i][location_x] = '⬜'
+                board.boats_location = boat_check(location_y + i, location_x,
+                                                  board.boats_location)
+            return bool_check
+
