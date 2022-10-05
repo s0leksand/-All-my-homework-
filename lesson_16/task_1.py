@@ -17,3 +17,9 @@ class Board:
             print()
 
 
+def boat_check(y, x, boat_location_check):
+    for i in range(3):
+        boat_location_check.add(f'{[y - 1, x - 1 + i]}')
+        boat_location_check.add(f'{[y, x + 1 - i]}')
+        boat_location_check.add(f'{[y + 1, x - 1 + i]}')
+    return boat_location_check
