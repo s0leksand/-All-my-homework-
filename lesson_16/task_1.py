@@ -42,20 +42,34 @@ def right_locate(board, boat_size):
                                               board.boats_location)
         return bool_check
 
-    def left_locate(board, boat_size):
-        bool_check = True
 
-        location_x = random.randint(0, 9)
-        location_y = random.randint(0, 9 - boat_size + 1)
+def left_locate(board, boat_size):
+    bool_check = True
 
+    location_x = random.randint(0, 9)
+    location_y = random.randint(0, 9 - boat_size + 1)
+
+    for i in range(boat_size):
+        if f'[{location_y + i}, {location_x}]' in board.boats_location:
+            bool_check = False
+
+    if bool_check:
         for i in range(boat_size):
-            if f'[{location_y + i}, {location_x}]' in board.boats_location:
-                bool_check = False
+            board.board_selections[location_y + i][location_x] = '⬜'
+            board.boats_location = boat_check(location_y + i, location_x,
+                                                board.boats_location)
+        return bool_check
+
+
+def locate(board, boat_size):
+    b = 0
+    while b != 1:
+        right = random.randint(0, 1)
+        if right == 1:
+            bool_check = right_locate(board, boat_size)
+        else:
+            bool_check = left_locate(board, boat_size)
 
         if bool_check:
-            for i in range(boat_size):
-                board.board_selections[location_y + i][location_x] = '⬜'
-                board.boats_location = boat_check(location_y + i, location_x,
-                                                  board.boats_location)
-            return bool_check
+            b += 1
 
