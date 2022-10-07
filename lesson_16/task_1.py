@@ -4,7 +4,7 @@ import random
 class Board:
     def __init__(self):
         self.board_selections = [["⃞️" for _ in range(10)] for _ in range(10)]
-        self.letters_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+        self.letters_list = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Є', 'Ж', 'З', 'И']
         self.boats_location = set()
 
     def draw_board(self):
@@ -73,3 +73,18 @@ def locate(board, boat_size):
         if bool_check:
             b += 1
 
+
+if __name__ == "__main__":
+    bot_board = Board()
+    bot_board.draw_board()
+    locate(bot_board, 1)
+    locate(bot_board, 1)
+    locate(bot_board, 1)
+    locate(bot_board, 1)
+    locate(bot_board, 2)
+    locate(bot_board, 2)
+    locate(bot_board, 2)
+    locate(bot_board, 3)
+    locate(bot_board, 3)
+    locate(bot_board, 4)
+    bot_board.draw_board()
